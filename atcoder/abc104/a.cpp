@@ -7,12 +7,12 @@ using namespace std;
 int main(int argc, char const *argv[])
 {
     int R;
+    string ans = "AGC\n";
     cin >> R;
     if (R < 1200)
-        cout << "ABC\n";
+        ans = "ABC\n";
     else if (R < 2800)
-        cout << "ARC\n";
-    else
-        cout << "AGC\n";
+        ans = "ARC\n";
+    cout << ans;
     return 0;
 }

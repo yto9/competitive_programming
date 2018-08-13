@@ -7,19 +7,19 @@ using namespace std;
 int main(int argc, char const *argv[])
 {
     string S; cin >> S;
-    string res = "AC\n";
+    string ans = "AC\n";
     int cnt = 0; 
     int L = S.size();
-    if (S[0] != 'A') res = "WA\n";
+    if (S[0] != 'A') ans = "WA\n";
     FOR(i, 1, L){
         if (isupper(S[i])){
             if (i == 1 || i == L - 1 || S[i] != 'C'){
-                res = "WA\n";
+                ans = "WA\n";
             }
             cnt++;
         }
     }
-    if (cnt != 1) res = "WA\n";
-    cout << res;
+    if (cnt != 1) ans = "WA\n";
+    cout << ans;
     return 0;
 }
