@@ -10,7 +10,8 @@
             "args": [
                 "-g",
                 "-Wall",
-                "atcoder/abc104/c.cpp"
+                //"atcoder/abc104/d.cpp"
+                "${file}"
             ],
             "group": {
                 "kind": "build",
