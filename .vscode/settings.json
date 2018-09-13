@@ -7,6 +7,14 @@
         "vector": "cpp",
         "iostream": "cpp",
         "iomanip": "cpp",
-        "unordered_map": "cpp"
+        "unordered_map": "cpp",
+        "ostream": "cpp",
+        "*.tcc": "cpp",
+        "forward_list": "cpp",
+        "list": "cpp",
+        "unordered_set": "cpp",
+        "array": "cpp",
+        "initializer_list": "cpp",
+        "string_view": "cpp"
     }
 }
