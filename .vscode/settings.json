@@ -7,6 +7,14 @@
         "vector": "cpp",
         "iostream": "cpp",
         "iomanip": "cpp",
-        "unordered_map": "cpp"
+        "unordered_map": "cpp",
+        "ostream": "cpp",
+        "bitset": "cpp",
+        "array": "cpp",
+        "initializer_list": "cpp",
+        "string_view": "cpp",
+        "utility": "cpp",
+        "unordered_set": "cpp",
+        "complex": "cpp"
     }
 }
