@@ -7,7 +7,8 @@ typedef long long ll;
 
 int main(int argc, char const *argv[])
 {
-    cin.tie(0);
-   	ios::sync_with_stdio(false);
+    int A, B, C, K; cin >> A >> B >> C >> K;
+    int S, T; cin >> S >> T;
+    cout << A*S + B*T - (S + T >= K)*(S + T)*C << endl;
     return 0;
 }

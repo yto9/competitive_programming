@@ -1,13 +1,12 @@
 #include <bits/stdc++.h>
 
-using namespace std; 
+using namespace std;
+#define FOR(i, a, b) for (int i = (a); i < (b); i++) 
 #define REP(i, n) for (int i = 0; i < (n); i++)
-
-typedef long long ll;
 
 int main(int argc, char const *argv[])
 {
-    cin.tie(0);
-   	ios::sync_with_stdio(false);
+    char X; cin >> X;
+    cout << X - 'A' + 1 << endl;
     return 0;
 }

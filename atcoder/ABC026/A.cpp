@@ -7,7 +7,11 @@ typedef long long ll;
 
 int main(int argc, char const *argv[])
 {
-    cin.tie(0);
-   	ios::sync_with_stdio(false);
+    int A; cin >> A;
+    int res = 0;
+    REP(i, A) {
+        res = max(res, i * (A - i));
+    }
+    cout << res << endl;
     return 0;
 }
