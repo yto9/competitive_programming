@@ -48,5 +48,15 @@
                 }
             ]
         }
+    ],
+    "compounds": [
+        {
+            "name": "(gdb) Launch*2",
+            "configurations": ["(gdb) Launch", "(gdb) Launch"]
+        },
+        {
+            "name": "(gdb) Launch*4",
+            "configurations": ["(gdb) Launch", "(gdb) Launch", "(gdb) Launch", "(gdb) Launch"]
+        }
     ]
 }

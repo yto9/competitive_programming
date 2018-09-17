@@ -15,6 +15,9 @@
         "string_view": "cpp",
         "utility": "cpp",
         "unordered_set": "cpp",
-        "complex": "cpp"
+        "complex": "cpp",
+        "climits": "cpp",
+        "*.tcc": "cpp",
+        "list": "cpp"
     }
 }
