@@ -18,6 +18,17 @@
         "complex": "cpp",
         "climits": "cpp",
         "*.tcc": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "forward_list": "cpp",
+        "cmath": "cpp",
+        "thread": "cpp",
+        "tuple": "cpp",
+        "iosfwd": "cpp"
+    },
+    "python.pythonPath": "${workspaceFolder}/comp_py/bin/python",
+    "python.linting.pep8Enabled": true,
+    "python.formatting.provider": "autopep8",
+    "[python]":{
+        "editor.formatOnSave": true
     }
 }

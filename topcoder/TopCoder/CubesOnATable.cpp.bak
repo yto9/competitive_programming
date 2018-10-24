@@ -1,0 +1,12 @@
+// BEGIN CUT HERE
+
+// END CUT HERE
+#line 5 "CubesOnATable.cpp"
+#include <string>
+#include <vector>
+class CubesOnATable {
+	public:
+	vector <int> placeCubes(int surface) {
+		
+	}
+};
