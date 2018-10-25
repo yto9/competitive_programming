@@ -1,0 +1,73 @@
+<html><body bgcolor="#000000" text="#ffffff"><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><p>
+You are a spectator at a long jump competition.
+N contestants compete in the event.
+The contestants wear bibs with numbers 0 through N-1.
+</p>
+<p>
+The competition consists of three rounds.
+In each round each contestant gets one attempt to jump as far as they can.
+To make the competition more dramatic for spectators, the order in which the contestants jump may change from round to round.
+More precisely, before each round the contestants are ordered from the currently-worst to the currently-best one, and that is the order in which they will jump.
+</p>
+<p>
+In order to compare which contestant is better, we first compare their best jump.
+In case of a tie, we look at their second best jump, and so on.
+If two contestants have exactly the same collection of jump lengths, the one with the smaller bib number is better.
+(Thus, before the first round of the competition contestant 0 is the best contestant. This means that in the first round they always jump in the order N-1, N-2, ..., 1, 0.)
+</p>
+<p>
+You have observed the whole competition and you wrote down all 3*N jump lengths in the order in which the contestants made them.
+You are given these lengths in the vector &lt;int&gt; <b>jumpLengths</b>.
+You forgot to write down which contestant made which jump, but luckily this can be reconstructed from what we know about the contest.
+</p>
+<p>
+What are the results of the competition?
+Compute and return a vector &lt;int&gt; with N elements: the bib numbers of the contestants in the order in which they placed in the contest (starting with the winner).
+</p></td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>LongJumpCompetition</td></tr><tr><td>Method:</td><td>recoverStandings</td></tr><tr><td>Parameters:</td><td>vector &lt;int&gt;</td></tr><tr><td>Returns:</td><td>vector &lt;int&gt;</td></tr><tr><td>Method signature:</td><td>vector &lt;int&gt; recoverStandings(vector &lt;int&gt; jumpLengths)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td colspan="2"><h3>Limits</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Time limit (s):</td><td>2.000</td></tr><tr><td>Memory limit (MB):</td><td>256</td></tr></table></td></tr><tr><td colspan="2"><h3>Notes</h3></td></tr><tr><td align="center" valign="top">-</td><td>The number N is not given explicitly. You can determine it by looking at the number of elements in <b>jumpLengths</b> and dividing it by 3.</td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td>N will be between 1 and 50, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td><b>jumpLengths</b> will have exactly 3*N elements.</td></tr><tr><td align="center" valign="top">-</td><td>Each element of <b>jumpLengths</b> will be between 0 and 1000, inclusive.</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{847, 833, 829}</pre></td></tr></table></td></tr><tr><td><pre>Returns: {0 }</pre></td></tr><tr><td><table><tr><td colspan="2">This test case has N = 1.
+In other words, there is a single competitor (with bib number 0).
+That competitor makes three jumps and then wins the contest.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{100, 120, 110, 130, 120, 111, 147, 92, 0}</pre></td></tr></table></td></tr><tr><td><pre>Returns: {0, 2, 1 }</pre></td></tr><tr><td><table><tr><td colspan="2"><p>
+We see that <b>jumpLengths</b> contains nine jumps, so we have N = 3 contestants. Here's the full explanation of what happens during the contest:
+</p>
+<ul>
+<li>
+Before the first round nobody has made any jumps yet.
+Thus, the order from worst to best is determined purely by the contestants' bib numbers.
+In the first round they are going to jump in the order {2, 1, 0}.
+</li>
+<li>
+What this means is that contestant 2's jump had length 100, then contestant 1's jump had length 120, and finally contestant 0's jump measured 110.
+</li>
+<li>
+Before the second round we determine a new order for the contestants.
+Currently, contestant 2 is the worst, then 0, and contestant 1 leads the contest with the currently longest jump.
+Thus, in the second round they will jump in the order {2, 0, 1}.
+</li>
+<li>
+Second round results come in: contestant 2's second jump measures 130, then we see contestant 0's second jump to 120, and contestant 1 jumps only to the 111 mark.
+</li>
+<li>
+Before the third round we again need to determine the current standings.
+The clear leader is contestant 2, their longest jump length is 130.
+Contestants 0 and 1 have the same longest jump: 120.
+Thus, we look at their second longest jump to see that contestant 1 should be higher in the standings.
+Hence, the order from worst to best in which they will jump in the third round is {0, 1, 2}.
+</li>
+<li>
+In the third round, contestant 0 makes the longest jump of the contest. The other two jumps are then too short to change anything. Thus, in the end contestant 0 wins, contestant 2 is second, and contestant 1 is third. This order is what we return: {0, 2, 1}.
+</li>
+</ul></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">2)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}</pre></td></tr></table></td></tr><tr><td><pre>Returns: {0, 1, 2, 3 }</pre></td></tr><tr><td><table><tr><td colspan="2">There are four contestants, each makes three very unsuccessful jumps. As their jump lengths are exactly the same, their order is always determined only by the numbers they wear. Thus, in the end contestant 0 is the winner, followed by 1, 2, and 3.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">3)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{850, 840, 841, 850, 850, 837}</pre></td></tr></table></td></tr><tr><td><pre>Returns: {1, 0 }</pre></td></tr><tr><td><table><tr><td colspan="2"><p>
+The following happened during the contest:
+</p>
+<ul>
+<li>Contestant 1 jumped 850.</li>
+<li>Contestant 0 jumped 840.</li>
+<li>Contestant 0 jumped 841.</li>
+<li>Contestant 1 jumped 850.</li>
+<li>Contestant 0 jumped 850.</li>
+<li>Contestant 1 jumped 837.</li>
+</ul>
+<p>
+In the end, contestant 1 is the winner.
+Both contestants have the same length of the longest jump (850).
+Contestant 1 has a better second-longest jump (also 850) than contestant 0 (only 841).
+</p></td></tr></table></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>

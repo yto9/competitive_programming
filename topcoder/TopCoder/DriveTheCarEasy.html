@@ -1,0 +1,48 @@
+<html><body bgcolor="#000000" text="#ffffff"><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><p>
+You are driving a car along a long straight road.
+Initially your car has the speed of 0 meters/second.
+You are going to drive for <b>S</b> seconds.
+We will number these seconds from 1 to <b>S</b>, inclusive.
+</p>
+
+<p>
+You are given <b>N</b> pairs of integers (<b>moments</b>[i], <b>speed_changes</b>[i]).
+Each such pair has the following meaning:
+Immediately before second number <b>moments</b>[i] you will instantly increase the speed of your car by <b>speed_changes</b>[i] meters/second.
+</p>
+
+<p>
+Compute and return the total distance the car will travel during those <b>S</b> seconds.
+</p></td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>DriveTheCarEasy</td></tr><tr><td>Method:</td><td>calculateDistance</td></tr><tr><td>Parameters:</td><td>int, int, vector &lt;int&gt;, vector &lt;int&gt;</td></tr><tr><td>Returns:</td><td>long long</td></tr><tr><td>Method signature:</td><td>long long calculateDistance(int S, int N, vector &lt;int&gt; speed_changes, vector &lt;int&gt; moments)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td colspan="2"><h3>Limits</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Time limit (s):</td><td>2.000</td></tr><tr><td>Memory limit (MB):</td><td>256</td></tr></table></td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td><b>S</b> will be between 1 and 10<sup>9</sup>, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td><b>N</b> will be between 1 and 100, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td><b>speed_changes</b> and <b>moments</b> will have exactly <b>N</b> elements each.</td></tr><tr><td align="center" valign="top">-</td><td>Each element of <b>speed_changes</b> will be between 1 and 1000, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td>Each element of <b>moments</b> will be between 1 and S, inclusive.</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>1000</pre></td></tr><tr><td><pre>1</pre></td></tr><tr><td><pre>{1000}</pre></td></tr><tr><td><pre>{1}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 1000000</pre></td></tr><tr><td><table><tr><td colspan="2">At the beginning (before second number 1) you increase the speed of your car from 0 m/s to 1000 m/s.
+The car then moves at this speed for 1000 seconds, so it will travel 1,000,000 meters.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>5</pre></td></tr><tr><td><pre>5</pre></td></tr><tr><td><pre>{1, 2, 3, 4, 5}</pre></td></tr><tr><td><pre>{1, 2, 3, 4, 5}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 35</pre></td></tr><tr><td><table><tr><td colspan="2">The speed during each second will be 1, 3, 6, 10 and 15 m/s respectively, so the answer is 1+3+6+10+15 = 35 meters.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">2)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>100</pre></td></tr><tr><td><pre>5</pre></td></tr><tr><td><pre>{1, 2, 3, 4, 5}</pre></td></tr><tr><td><pre>{100, 100, 100, 100, 100}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 15</pre></td></tr><tr><td><table><tr><td colspan="2"><p>
+Note that <b>moments</b> may contain the same value multiple times. If it does, each occurrence should be processed separately.
+</p>
+<p>
+In this example your car stands still for 99 seconds.
+Then, immediately before the second #100, five separate speedups occur.
+In total, you increase the speed of your car by 1+2+3+4+5 = 15 m/s.
+Thus, during second #100 the car will travel 15 meters.
+</p></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">3)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>1000000000</pre></td></tr><tr><td><pre>3</pre></td></tr><tr><td><pre>{1000, 1000, 1000}</pre></td></tr><tr><td><pre>{3, 2, 1}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 2999999997000</pre></td></tr><tr><td><table><tr><td colspan="2"><p>Note that the elements of <b>moments</b> do not have to be sorted.</p>
+<p>Watch out for integer overflow.</p></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">4)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>100</pre></td></tr><tr><td><pre>10</pre></td></tr><tr><td><pre>{522,426,772,447,497,775,982,417,932,728}</pre></td></tr><tr><td><pre>{75,45,81,29,2,25,84,56,2,37}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 367474</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">5)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>1000000000</pre></td></tr><tr><td><pre>100</pre></td></tr><tr><td><pre>{857,918,679,340,868,940,593,991,355,431,757,934,676,221,
+ 922,511,467,691,835,965,221,501,325,302,896,489,607,432,
+ 968,475,84,694,354,409,643,951,420,607,167,438,986,483,
+ 806,858,553,554,325,279,327,832,200,658,992,467,958,600,
+ 473,775,770,718,807,898,530,569,384,913,315,334,392,8,
+ 962,850,61,588,980,890,747,740,469,516,7,299,163,571,455,
+ 590,427,342,239,875,258,377,428,455,653,768,307,878,368,882}</pre></td></tr><tr><td><pre>{189330739,802329211,303238506,492686568,125660016,839296263,
+ 492601449,191890310,782177068,818008580,160449218,840594328,
+ 797829355,501899080,545531545,350034067,470338674,533206504,
+ 31262034,677959980,846045895,346948152,506147731,816248153,
+ 37119022,215208399,189766466,137831502,47628333,409233792,
+ 888987010,87027328,421624712,871216480,509928121,14723492,
+ 569328197,807497925,537560717,889089200,846216104,76823620,
+ 242790881,792345559,632488502,70422962,26697435,992120464,
+ 499482549,736386595,940778720,306890639,1849130,672298989,
+ 331602581,206347466,149811929,316412581,927999455,441504628,
+ 673419335,198091552,599715811,441414148,80656954,110880114,
+ 233703686,209550382,214278326,936333553,989214957,989248231,
+ 954621185,909664305,887357564,988670052,922390943,901347593,
+ 528977370,817020443,81469525,101430412,801006699,99958976,
+ 458482217,770179343,91883220,87104584,8454496,269122601,
+ 483571449,667480040,926138238,897273517,774034433,359911957,
+ 94576456,741452977,171601999,723473541}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 29493629905568</pre></td></tr><tr><td><table><tr><td colspan="2"></td></tr></table></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>

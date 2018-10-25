@@ -1,0 +1,41 @@
+<html><body bgcolor="#000000" text="#ffffff"><table><tr><td colspan="2"><h3>Problem Statement</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><p>
+Alice and Bob are playing a game of NIM.
+</p>
+<p>
+The rules of NIM are as follows:
+There are several piles of stones.
+The players take alternating turns.
+In each turn, the current player selects one non-empty pile of stones and removes some stones from the pile.
+(The player must remove at least one stone. They can remove as many stones as they want, possibly all of them, but just from a single pile.)
+The game ends when all stones have been removed.
+The player who removed the last stone wins the game.
+Equivalently, the first player who is unable to make a valid move loses the game.
+</p>
+<p>
+The game of NIM has a very simple strategy based on binary representations of pile sizes.
+A position in the game of NIM is <i>winning</i> if the bitwise XOR of the sizes of all piles is non-zero, and <i>losing</i> if the bitwise XOR of the sizes of all piles is zero.
+It can be shown that:
+</p>
+<ul>
+<li>If it is your turn and you are in a <i>losing</i> position, you will lose the game if your opponent plays optimally.</li>
+<li>If it is your turn and you are in a <i>winning</i> position, you will win the game if you play optimally.</li>
+</ul>
+<p>
+Both Alice and Bob play the game of NIM optimally.
+It is now Alice's turn.
+You are given a description of the current state of the game: the vector &lt;int&gt; <b>a</b>.
+Each element of <b>a</b> represents the number of stones on one of the piles.
+Consider all possible first moves Alice can make in the given situation.
+For how many of them will Alice eventually win the game?
+Find and return that number.
+</p>
+<p>
+(Two moves are considered distinct if they produce a different new <i>sequence</i> of pile sizes.
+In other words, we can distinguish between different piles that have the same number of stones.
+See Example #1.)
+</p></td></tr><tr><td colspan="2"><h3>Definition</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Class:</td><td>AliceAndBobMedium</td></tr><tr><td>Method:</td><td>count</td></tr><tr><td>Parameters:</td><td>vector &lt;int&gt;</td></tr><tr><td>Returns:</td><td>int</td></tr><tr><td>Method signature:</td><td>int count(vector &lt;int&gt; a)</td></tr><tr><td colspan="2">(be sure your method is public)</td></tr></table></td></tr><tr><td colspan="2"><h3>Limits</h3></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td>Time limit (s):</td><td>2.000</td></tr><tr><td>Memory limit (MB):</td><td>256</td></tr></table></td></tr><tr><td colspan="2"><h3>Constraints</h3></td></tr><tr><td align="center" valign="top">-</td><td><b>a</b> will contain between 1 and 37 elements, inclusive.</td></tr><tr><td align="center" valign="top">-</td><td>Each element of <b>a</b> will be between 1 and 737,373,737, inclusive.</td></tr><tr><td colspan="2"><h3>Examples</h3></td></tr><tr><td align="center" nowrap="true">0)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{737}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 1</pre></td></tr><tr><td><table><tr><td colspan="2">There is a single pile with 737 stones. In this situation Alice has exactly one winning move: she should remove all stones and win immediately. If she does anything else, Bob will remove all the remaining stones and win.</td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">1)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{7,3,7}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 3</pre></td></tr><tr><td><table><tr><td colspan="2">In this situation Alice has three different winning moves:
+<ol>
+<li>Remove three stones from the first pile.</li>
+<li>Remove three stones from the second pile.</li>
+<li>Remove three stones from the third pile.</li>
+</ol></td></tr></table></td></tr></table></td></tr><tr><td align="center" nowrap="true">2)</td><td></td></tr><tr><td>&#160;&#160;&#160;&#160;</td><td><table><tr><td><table><tr><td><pre>{3,7,3,7}</pre></td></tr></table></td></tr><tr><td><pre>Returns: 0</pre></td></tr><tr><td><table><tr><td colspan="2">Regardless of how Alice plays from this position, Bob will eventually win the game.</td></tr></table></td></tr></table></td></tr></table><p>This problem statement is the exclusive and proprietary property of TopCoder, Inc.  Any unauthorized use or reproduction of this information without the prior written consent of TopCoder, Inc. is strictly prohibited.  (c)2003, TopCoder, Inc.  All rights reserved.  </p></body></html>
