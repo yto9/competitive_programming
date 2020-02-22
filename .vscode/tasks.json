@@ -10,6 +10,9 @@
             "args": [
                 "-g",
                 "-Wall",
+                "-fsanitize=undefined",
+                "-Wno-deprecated",
+                "-Wno-unneeded-internal-declaration",
                 //"atcoder/abc104/d.cpp"
                 "${file}"
             ],

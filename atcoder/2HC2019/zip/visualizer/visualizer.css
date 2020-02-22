@@ -1,0 +1,71 @@
+.form-group {
+    margin-bottom: 10px;
+}
+
+.file-select-form {
+    margin-top: 10px;
+}
+
+.visualize-player-form {
+    margin: 0 2px 0 2px;
+    text-align: center;
+}
+
+.show-score-form {
+    margin: 5px 2px 0 2px;
+    text-align: center;
+}
+
+.visualizer-form {
+    margin-bottom: 8px;
+}
+
+#visualizer-canvas {
+    width: 49%;
+    height: 400px;
+    margin-right: 1%;
+}
+
+#graph-field {
+    width: 100%;
+    height: 400px;
+    border: 1px solid lightgray;
+}
+
+#overlay-field {
+    position: absolute;
+    pointer-events: none;
+}
+
+#visualizer-canvas {
+    position: relative;
+}
+
+#order-state-window table {
+    height: 1.0em;
+    width: 100%;
+    margin-bottom: 10px;
+    border-collapse:separate;
+    border-spacing: 2px;
+}
+
+#log-window {
+    width: 49%;
+    height: 400px;
+    margin-left: 1%;
+    overflow: scroll;
+}
+
+.order-state-cell {
+    height: 1.2em;
+    width: 4%;
+    line-height: 1.2em;
+    text-align: center;
+    font-size: 0.6em;
+}
+
+.primary {
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    color: #fff;
+}

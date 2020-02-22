@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <title>Visualizer for Hitachi Hokudai Labo & Hokkaido University Contest 2019 A</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <!-- import libraries -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+  <!--
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  -->
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+
+  <!-- AtCoder Bootstrap -->
+  <link href="https://atcoder.jp/public/css/base.css?v=201910091029" rel="stylesheet" type="text/css" />
+  <link href="https://atcoder.jp/public/css/bootstrap.min.css?v=201910091029" rel="stylesheet" type="text/css" />
+  <script src="https://atcoder.jp/public/js/lib/jquery-1.9.1.min.js?v=201910091029"></script>
+  <script src="https://atcoder.jp/public/js/lib/bootstrap.min.js?v=201910091029"></script>
+  <!-- import libraries end -->
+  
+  <!-- import visualizer codes -->
+  <script type="text/javascript" src="./visualizer.js"></script>
+  <link href="../visualizer.css" rel="stylesheet" type="text/css" />
+  <!-- import visualizer codes end -->
+</head>
+<body>
+  <div class="container">
+    <h2>Visualizer for Hitachi Hokudai Labo & Hokkaido University Contest 2019 A</h2>
+    <div class="file-select-form">
+      <div class="row form-group">
+	<div class="col-sm-6">
+	  <div class="input-group">
+	    <label class="input-group-btn">
+	      <span class="btn btn-info">
+		Input<input type="file" style="display:none;" id="input-file-select-button" />
+	      </span>
+	    </label>
+	    <input type="text" class="form-control" readonly="readonly" id="input-file-select-textbox" />
+	  </div>
+	</div>
+	<div class="col-sm-6">
+	  <div class="input-group">
+	    <label class="input-group-btn">
+	      <span class="btn btn-info">
+		Output<input type="file" style="display:none;" id="output-file-select-button" />
+	      </span>
+	    </label>
+	    <input type="text" class="form-control" readonly="readonly" id="output-file-select-textbox" />
+	  </div>
+	</div>
+      </div>
+    </div>
+    <div class="visualize-player-form">
+      <div class="row form-group">
+	<div class="col-sm-4">
+	  <div class="input-group">
+	    <span class="input-group-addon">
+              <input type="checkbox" id="show-error-message-checkbox" checked="checked" />
+	    </span>
+	    <input type="text" class="form-control" value="Don't show error message" readonly="readonly" id="show-error-message-textbox" />
+	  </div>
+	</div>
+	<div class="col-sm-8">
+	  <input type="range" class="form-control" value="0" id="seek-range" />
+	</div>
+      </div>
+      <div class="row form-group">
+	<div class="col-sm-4">
+	  <div class="input-group">
+	    <span class="input-group-addon">Step</span>
+	    <input type="number" class="form-control" value="0" min="0" max="0" id="seek-number" />
+	  </div>
+	</div>
+	
+	<div class="col-sm-4">
+	  <div class="btn-group btn-group-justified" role="group" aria-label="visualize-player-buttons">
+	    <div class="btn-group" role="group">
+	      <button type="button" class="btn btn-secondary" id="first-button"><i class="fas fa-step-backward" id="first-button-icon"></i></button>
+	    </div>
+	    <div class="btn-group" role="group">
+	      <button type="button" class="btn btn-secondary" id="prev-button"><i class="fas fa-backward" id="prev-button-icon"></i></button>
+	    </div>
+	    <div class="btn-group" role="group">
+	      <button type="button" class="btn btn-primary" id="play-button"><i class="fas fa-play" id="play-button-icon"></i></button>
+	    </div>
+	    <div class="btn-group" role="group">
+	      <button type="button" class="btn btn-secondary" id="next-button"><i class="fas fa-forward" id="next-button-icon"></i></button>
+	    </div>
+	    <div class="btn-group" role="group">
+	      <button type="button" class="btn btn-secondary" id="last-button"><i class="fas fa-step-forward" id="last-button-icon"></i></button>
+	    </div>
+	  </div>
+	</div>
+
+	<div class="col-sm-4">
+	  <div class="input-group">
+	    <span class="input-group-addon">FPS</span>
+	    <input type="text" class="form-control" value="10" id="fps-window" />
+	  </div>
+	</div>
+      </div>
+    </div>
+    <div class="show-score-form">
+      <div class="row form-group">
+	<div class="col-sm-4">
+	  <div class="input-group">
+	    <span class="input-group-addon">Command</span>
+	    <input type="text" class="form-control" value="" readonly="readonly" id="operation-window" />
+	  </div>
+	</div>
+	<div class="col-sm-4">
+	  <div class="input-group">
+	    <span class="input-group-addon">Δ</span>
+	    <input type="text" class="form-control" value="" readonly="readonly" id="score-delta-window" />
+	  </div>
+	</div>
+	<div class="col-sm-4">
+	  <div class="input-group">
+	    <span class="input-group-addon primary">Score</span>
+	    <input type="text" class="form-control" value="" readonly="readonly" id="score-sum-window" />
+	  </div>
+	</div>
+      </div>
+    </div>
+    <div class="visualizer-form">
+      <div style="display: flex;">
+	<div id="visualizer-canvas" style="display: inline-block">
+	  <div id="graph-field"></div>
+	  <div id="overlay-field" style="display: none;">
+	    <img src="../img/car.png" width="30px" height="18px" />
+	  </div>
+	</div>
+	<div style="display: inline-block;" id="log-window">
+	</div>
+      </div>
+    </div>
+    <div id="order-state-window">
+    </div>
+  </div>
+
+  <!--
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  -->
+</body>
+</html>

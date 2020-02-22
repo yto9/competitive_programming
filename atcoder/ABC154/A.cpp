@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+
+using namespace std; 
+#define REP(i, n) for (int i = 0; i < (n); i++)
+
+typedef long long ll;
+int main(int argc, char const *argv[])
+{
+    cin.tie(0);
+   	ios::sync_with_stdio(false);
+    string S, T; cin >> S >> T;
+    int A, B; cin >> A >> B;
+    string U; cin >> U;
+    if (S == U) A--;
+    else B--;
+    cout << A << " " << B << endl;
+    return 0;
+}
