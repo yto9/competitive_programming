@@ -1,0 +1,2 @@
+curl -X GET "https://graph.facebook.com/oauth/access_token?client_id=2306502569610759&client_secret=f799759d14a7815054e2647293332640&grant_type=client_credentials"
+=> {"access_token":"2306502569610759|ZaT-H2jUy-hLg_-8Ph5io_bfY9M","token_type":"bearer"}

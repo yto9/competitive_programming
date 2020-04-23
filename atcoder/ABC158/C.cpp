@@ -1,24 +1,20 @@
-#include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std; 
 #define REP(i, n) for (int i = 0; i < (n); i++)
 
 typedef long long ll;
-
 int main(int argc, char const *argv[])
 {
     cin.tie(0);
    	ios::sync_with_stdio(false);
-    int N; cin >> N;
-    vector<int> v;
-    REP(i, 2 * N) {
-        int tmp; cin >> tmp;
-        v.push_back(tmp);
-    }
-    sort(v.begin(),v.end());
-    int res = 0;
-    REP(i, N) {
-        res += v[2*i];
+    int A, B; cin >> A >> B;
+    int res = -1;  
+    REP(i, 2000) {//適当
+        if (floor(i*0.08) == A && floor(i*0.1) == B){
+            res = i;
+            break;
+        }
     }
     cout << res << endl;
     return 0;
